@@ -1,9 +1,8 @@
 package com.whateley.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +18,18 @@ public class StudentController {
     @RequestMapping("/students/{id}")
     public Student showStudent(@PathVariable int id){
         return studentService.getStudent(id);
+    }
+
+    @RequestMapping(value="/students", method= RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Student addStudent(@RequestBody Student student){
+        studentService.addStudent(student);
+        return student;
+    }
+
+       @RequestMapping(value="/students/{id}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Student updateStudent(@RequestBody Student student ,@PathVariable int id){
+        studentService.updateStudent(id, student);
+        return student;
     }
 
 }
