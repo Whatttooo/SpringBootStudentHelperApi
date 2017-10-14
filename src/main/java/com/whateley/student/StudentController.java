@@ -32,4 +32,10 @@ public class StudentController {
         return student;
     }
 
+    @RequestMapping(value="/students/{id}", method=RequestMethod.DELETE)
+    public String deleteStudent(@PathVariable String id){
+        studentService.deleteStudent(id);
+        return "Success";
+    }
+
 }

@@ -41,4 +41,8 @@ public class StudentService {
             .collect(Collectors.toList());
     }
 
+    public void deleteStudent(String id){
+        studentsList.removeIf(student -> student.getId().equals(id));
+    }
+
 }
