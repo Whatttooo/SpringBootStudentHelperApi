@@ -16,7 +16,7 @@ public class StudentController {
     public List<Student> showAllStudents() {return studentService.getAllStudents();}
 
     @RequestMapping("/students/{id}")
-    public Student showStudent(@PathVariable int id){
+    public Student showStudent(@PathVariable String id){
         return studentService.getStudent(id);
     }
 
@@ -26,8 +26,8 @@ public class StudentController {
         return student;
     }
 
-       @RequestMapping(value="/students/{id}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Student updateStudent(@RequestBody Student student ,@PathVariable int id){
+    @RequestMapping(value="/students/{id}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Student updateStudent(@RequestBody Student student ,@PathVariable String id){
         studentService.updateStudent(id, student);
         return student;
     }
