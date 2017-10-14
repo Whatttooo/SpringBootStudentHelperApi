@@ -2,23 +2,23 @@ package com.whateley.student;
 
 
 public class Student {
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
 
     public Student(){}
 
-    public Student(int id, String firstName, String lastName) {
+    public Student(String id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

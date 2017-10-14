@@ -13,35 +13,36 @@ import java.util.stream.Collectors;
 @Service
 public class StudentService {
 
-    private HashMap<Long, Student> studentHashMap;
-
-    private List<Student> students = new ArrayList<>(Arrays.asList(
-            new Student(1,"Josh", "Whateley"),
-            new Student(2,"Harry","Whateley"),
-            new Student(3,"Sam", "Rankin-Hastie"),
-            new Student(4,"Max", "Tuzzolino"),
-            new Student(5,"Alan", "Pang"),
-            new Student(6,"Michael", "Edkins")
+    private List<Student> studentsList = new ArrayList<>(Arrays.asList(
+            new Student("JosW001","Josh", "Whateley"),
+            new Student("HarW002","Harry","Whateley"),
+            new Student("SamR003","Sam", "Rankin-Hastie"),
+            new Student("MaxT004","Max", "Tuzzolino"),
+            new Student("AlaP005","Alan", "Pang"),
+            new Student("MicE006","Michael", "Edkins")
     ));
 
     public List<Student> getAllStudents(){
-        return students;
+        return studentsList;
     }
 
-    public Student getStudent(int id){
-        return students.stream().filter(s -> s.getId() == id).findFirst().get();
+    public Student getStudent(String id){
+        return studentsList.stream().filter(s -> s.getId().equals(id)).findFirst().get();
     }
 
     public void addStudent(@RequestBody Student student){
-        students.add(student);
+        studentsList.add(student);
     }
 
-    public void updateStudent(int id, Student student){
-        students = students
+    public void updateStudent(String id, Student student){
+        studentsList = studentsList
             .stream()
-            .map(studentRef -> studentRef.getId() == id ? student : studentRef)
+            .map(studentRef -> studentRef.getId().equals(id) ? student : studentRef)
             .collect(Collectors.toList());
+    }
 
+    public void deleteStudent(String id){
+        studentsList.removeIf(student -> student.getId().equals(id));
     }
 
 }
