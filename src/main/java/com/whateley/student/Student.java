@@ -1,7 +1,10 @@
 package com.whateley.student;
 
+import com.whateley.University.University;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Student {
@@ -11,12 +14,16 @@ public class Student {
     private String firstName;
     private String lastName;
 
+    @ManyToOne
+    private University uniId;
+
     public Student(){}
 
-    public Student(String id, String firstName, String lastName) {
+    public Student(String id, String firstName, String lastName, String uniId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.uniId = new University(uniId, "","","","");
     }
 
     public String getId() {
@@ -42,4 +49,13 @@ public class Student {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public University getUniId() {
+        return uniId;
+    }
+
+    public void setUniId(University uniId) {
+        this.uniId = uniId;
+    }
+
 }
