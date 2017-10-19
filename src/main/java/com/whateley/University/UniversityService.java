@@ -18,4 +18,20 @@ public class UniversityService {
                 .forEach(unis :: add);
         return unis;
     }
+
+    public University getUniversityById(String id) {
+        return universityRepository.findOne(id);
+    }
+
+    public void addUniversity(University uni) {
+        universityRepository.save(uni);
+    }
+
+    public void deleteUniversity(String id) {
+        universityRepository.delete(id);
+    }
+
+    public void updateUniveristy(University uni, String id) {
+        universityRepository.save(uni);
+    }
 }
