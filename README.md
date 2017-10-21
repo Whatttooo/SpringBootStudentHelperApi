@@ -8,3 +8,9 @@ To build :
 * clone git repo
 * Open in terminal and run gradlew build
 
+## End Points
+
+* /students
+* /students/{id}
+* /universities
+* /universities/{id}
