@@ -17,8 +17,8 @@ public class University {
 
     public University(){}
 
-    public University(String id, String name, String address, String city, String country) {
-        Id = id;
+    public University(String uniId, String name, String address, String city, String country) {
+        Id = uniId;
         Name = name;
         Address = address;
         City = city;
