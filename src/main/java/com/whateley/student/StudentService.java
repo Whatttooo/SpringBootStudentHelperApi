@@ -29,7 +29,7 @@ public class StudentService {
         return studentRepository.findOne(id);
     }
 
-    public void addStudent(@RequestBody Student student){
+    public void addStudent(Student student){
         studentRepository.save(student);
     }
 
