@@ -15,7 +15,7 @@ public class Student {
     private String lastName;
 
     @ManyToOne
-    private University uniId;
+    private University uni;
 
     public Student(){}
 
@@ -23,7 +23,7 @@ public class Student {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.uniId = new University(uniId, "","","","");
+        this.uni = new University(uniId, "","","","");
     }
 
     public String getId() {
@@ -50,12 +50,12 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public University getUniId() {
-        return uniId;
+    public University getUni() {
+        return uni;
     }
 
-    public void setUniId(University uniId) {
-        this.uniId = uniId;
+    public void setUni(University uni) {
+        this.uni = uni;
     }
 
 }

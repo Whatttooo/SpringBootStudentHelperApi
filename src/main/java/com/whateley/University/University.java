@@ -29,8 +29,8 @@ public class University {
         return Id;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void setId(String uniId) {
+        Id = uniId;
     }
 
     public String getName() {
