@@ -19,7 +19,7 @@ public class UniversityService {
         return unis;
     }
 
-    public University getUniversityById(String id) {
+    public University getUniversityById(Long id) {
         return universityRepository.findOne(id);
     }
 
@@ -27,11 +27,11 @@ public class UniversityService {
         universityRepository.save(uni);
     }
 
-    public void deleteUniversity(String id) {
+    public void deleteUniversity(Long id) {
         universityRepository.delete(id);
     }
 
-    public void updateUniveristy(University uni, String id) {
+    public void updateUniveristy(University uni, Long id) {
         universityRepository.save(uni);
     }
 }

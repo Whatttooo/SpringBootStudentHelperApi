@@ -25,7 +25,7 @@ public class StudentService {
         return students;
     }
 
-    public Student getStudent(String id){
+    public Student getStudent(Long id){
         return studentRepository.findOne(id);
     }
 
@@ -33,11 +33,11 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public void updateStudent(String id, Student student){
+    public void updateStudent(Long id, Student student){
         studentRepository.save(student);
     }
 
-    public void deleteStudent(String id){
+    public void deleteStudent(Long id){
         studentRepository.delete(id);
     }
 

@@ -2,15 +2,14 @@ package com.whateley.student;
 
 import com.whateley.University.University;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Student {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstName;
     private String lastName;
 
@@ -19,18 +18,18 @@ public class Student {
 
     public Student(){}
 
-    public Student(String id, String firstName, String lastName, String uniId) {
+    public Student(Long id, String firstName, String lastName, Long uniId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.uni = new University(uniId, "","","","");
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

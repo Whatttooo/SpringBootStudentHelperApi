@@ -17,7 +17,7 @@ public class StudentController {
     public List<Student> showAllStudents() {return studentService.getAllStudents();}
 
     @RequestMapping("/students/{id}")
-    public Student showStudent(@PathVariable String id){
+    public Student showStudent(@PathVariable Long id){
         return studentService.getStudent(id);
     }
 
@@ -28,13 +28,13 @@ public class StudentController {
     }
 
     @RequestMapping(value="/students/{id}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Student updateStudent(@RequestBody Student student ,@PathVariable String id){
+    public Student updateStudent(@RequestBody Student student ,@PathVariable Long id){
         studentService.updateStudent(id, student);
         return student;
     }
 
     @RequestMapping(value="/students/{id}", method=RequestMethod.DELETE)
-    public String deleteStudent(@PathVariable String id){
+    public String deleteStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
         return "Success";
     }

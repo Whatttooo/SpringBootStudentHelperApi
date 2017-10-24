@@ -20,7 +20,7 @@ public class UniversityController {
     }
 
     @RequestMapping("/universities/{id}")
-    public University getUniversityById(@PathVariable String id){
+    public University getUniversityById(@PathVariable Long id){
         return universityService.getUniversityById(id);
     }
 
@@ -31,13 +31,13 @@ public class UniversityController {
     }
 
     @RequestMapping(value = "/universities/{id}", method = RequestMethod.PUT ,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public University updateUniversity(@RequestBody University uni, @PathVariable String id){
+    public University updateUniversity(@RequestBody University uni, @PathVariable Long id){
         universityService.updateUniveristy(uni, id);
         return uni;
     }
 
     @RequestMapping(value="/universities/{id}", method=RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String deleteUniversity(@PathVariable String id){
+    public String deleteUniversity(@PathVariable Long id){
         universityService.deleteUniversity(id);
         return "Success";
     }
