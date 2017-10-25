@@ -12,59 +12,59 @@ public class University {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
-    private String Name;
-    private String Address;
-    private String City;
-    private String Country;
+    private Long uniId;
+    private String name;
+    private String address;
+    private String city;
+    private String country;
 
     public University(){}
 
     public University(Long uniId, String name, String address, String city, String country) {
-        Id = uniId;
-        Name = name;
-        Address = address;
-        City = city;
-        Country = country;
+        this.uniId = uniId;
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.country = country;
     }
 
     public Long getId() {
-        return Id;
+        return uniId;
     }
 
     public void setId(Long uniId) {
-        Id = uniId;
+        this.uniId = uniId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
 }

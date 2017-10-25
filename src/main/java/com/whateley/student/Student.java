@@ -9,7 +9,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long studentId;
     private String firstName;
     private String lastName;
 
@@ -19,18 +19,18 @@ public class Student {
     public Student(){}
 
     public Student(Long id, String firstName, String lastName, Long uniId) {
-        this.id = id;
+        this.studentId = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.uni = new University(uniId, "","","","");
     }
 
-    public Long getId() {
-        return id;
+    public Long getStudentId() {
+        return studentId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
     public String getFirstName() {
