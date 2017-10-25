@@ -10,7 +10,7 @@ To build :
 
 ## End Points
 
-* /students
-* /students/{id}
 * /universities
 * /universities/{id}
+* /universities/{id}/students
+* /universities/{id}/students/{id}

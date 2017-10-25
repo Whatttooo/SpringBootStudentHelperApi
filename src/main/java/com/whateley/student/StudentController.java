@@ -13,29 +13,29 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @RequestMapping("/students")
+    @RequestMapping("/universities/{uniId}/students")
     public List<Student> showAllStudents() {return studentService.getAllStudents();}
 
-    @RequestMapping("/students/{id}")
-    public Student showStudent(@PathVariable Long id){
-        return studentService.getStudent(id);
+    @RequestMapping("/universities/{uniId}/students/{studentId}")
+    public Student showStudent(@PathVariable Long studentId){
+        return studentService.getStudent(studentId);
     }
 
-    @RequestMapping(value="/students", method= RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/universities/{uniId}/students", method= RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Student addStudent(@RequestBody Student student){
         studentService.addStudent(student);
         return student;
     }
 
-    @RequestMapping(value="/students/{id}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Student updateStudent(@RequestBody Student student ,@PathVariable Long id){
-        studentService.updateStudent(id, student);
+    @RequestMapping(value="/universities/{uniId}/students/{studentId}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Student updateStudent(@RequestBody Student student ,@PathVariable Long studentId){
+        studentService.updateStudent(studentId, student);
         return student;
     }
 
-    @RequestMapping(value="/students/{id}", method=RequestMethod.DELETE)
-    public String deleteStudent(@PathVariable Long id){
-        studentService.deleteStudent(id);
+    @RequestMapping(value="/universities/{uniId}/students/{studentId}", method=RequestMethod.DELETE)
+    public String deleteStudent(@PathVariable Long studentId){
+        studentService.deleteStudent(studentId);
         return "Success";
     }
 
