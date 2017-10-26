@@ -22,7 +22,8 @@ public class StudentController {
     }
 
     @RequestMapping(value="/universities/{uniId}/students", method= RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Student addStudent(@RequestBody Student student){
+    public Student addStudent(@RequestBody Student student, @PathVariable Long uniId){
+        student.setUni(new University(uniId, "","","",""));
         studentService.addStudent(student);
         return student;
     }
