@@ -10,6 +10,7 @@ To build :
 
 ## End Points
 
+* /  -> points to Swagger docs
 * /universities
 * /universities/{id}
 * /universities/{id}/students
