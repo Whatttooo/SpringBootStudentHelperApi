@@ -1,8 +1,9 @@
 package com.whateley.student;
 
-import com.whateley.University.University;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+
     @RequestMapping("/universities/{uniId}/students")
     public List<Student> showAllStudents() {return studentService.getAllStudents();}
 
@@ -22,22 +24,21 @@ public class StudentController {
     }
 
     @RequestMapping(value="/universities/{uniId}/students", method= RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Student addStudent(@RequestBody Student student, @PathVariable Long uniId){
-        student.setUni(new University(uniId, "","","",""));
-        studentService.addStudent(student);
-        return student;
+    public ResponseEntity<Student> addStudent(@RequestBody Student student, @PathVariable Long uniId){
+        studentService.addStudent(student, uniId);
+        return new ResponseEntity<Student>(student, HttpStatus.CREATED);
     }
 
     @RequestMapping(value="/universities/{uniId}/students/{studentId}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Student updateStudent(@RequestBody Student student ,@PathVariable Long studentId){
+    public ResponseEntity<Student> updateStudent(@RequestBody Student student , @PathVariable Long studentId){
         studentService.updateStudent(studentId, student);
-        return student;
+        return new ResponseEntity<Student>(student,HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value="/universities/{uniId}/students/{studentId}", method=RequestMethod.DELETE)
-    public String deleteStudent(@PathVariable Long studentId){
+    public ResponseEntity<Void> deleteStudent(@PathVariable Long studentId){
         studentService.deleteStudent(studentId);
-        return "Success";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

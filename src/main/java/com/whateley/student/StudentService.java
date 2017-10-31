@@ -1,21 +1,22 @@
 package com.whateley.student;
 
 
+import com.whateley.University.University;
+import com.whateley.University.UniversityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+    private UniversityService universityService;
 
 
     public List<Student> getAllStudents(){
@@ -29,7 +30,15 @@ public class StudentService {
         return studentRepository.findOne(id);
     }
 
-    public void addStudent(Student student){
+    public void addStudent(Student studentData, Long uniId){
+        University uni = universityService.getUniversityById(uniId);
+        Student student = StudentBuilder
+                .aStudent()
+                .withStudentId(studentData.getStudentId())
+                .withFirstName(studentData.getFirstName())
+                .withLastName(studentData.getLastName())
+                .withUni(uni)
+                .build();
         studentRepository.save(student);
     }
 

@@ -1,5 +1,6 @@
 package com.whateley.University;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +21,19 @@ public class UniversityService {
     }
 
     public University getUniversityById(Long id) {
-        return universityRepository.findOne(id);
+        University uni = universityRepository.findOne(id);
+        return uni;
     }
 
-    public void addUniversity(University uni) {
+    public void addUniversity(University uniData) {
+        University uni = UniversityBuilder
+                .anUniversity()
+                .withUniId(uniData.getId())
+                .withName(uniData.getName())
+                .withAddress(uniData.getAddress())
+                .withCity(uniData.getCity())
+                .withCountry(uniData.getCountry())
+                .build();
         universityRepository.save(uni);
     }
 
@@ -34,4 +44,6 @@ public class UniversityService {
     public void updateUniveristy(University uni, Long id) {
         universityRepository.save(uni);
     }
+
+
 }
