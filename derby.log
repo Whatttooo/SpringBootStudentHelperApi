@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sun Oct 29 22:18:21 NZDT 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015f-676c-c24a-000004b77d78 
-on database directory memory:D:\dev\SpringBootStudentHelperApi\testdb with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
-Loaded from file:/C:/Users/jwhat/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.13.1.1/29c42babe5c5463c6eea45487d3cfbfe8348ccd1/derby-10.13.1.1.jar
+Tue Oct 31 14:28:52 NZDT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015f-700b-a697-0000046255f8 
+on database directory memory:E:\SpringBootApp\courseApiApplication\testdb with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/C:/Users/joshuaw/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.13.1.1/29c42babe5c5463c6eea45487d3cfbfe8348ccd1/derby-10.13.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_144-b01
-user.dir=D:\dev\SpringBootStudentHelperApi
+java.runtime.version=1.8.0_111-b14
+user.dir=E:\SpringBootApp\courseApiApplication
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
