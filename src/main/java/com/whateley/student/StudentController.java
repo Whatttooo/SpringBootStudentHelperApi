@@ -16,7 +16,7 @@ public class StudentController {
 
 
     @RequestMapping("/universities/{uniId}/students")
-    public List<Student> showAllStudents() {return studentService.getAllStudents();}
+    public List<Student> showAllStudents(@PathVariable Long uniId) {return studentService.getAllStudents(uniId);}
 
     @RequestMapping("/universities/{uniId}/students/{studentId}")
     public Student showStudent(@PathVariable Long studentId){
