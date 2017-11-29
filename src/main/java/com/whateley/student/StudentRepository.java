@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface StudentRepository extends CrudRepository<Student, Long>{
 
-    public List<Student> findByUniId(Long uniId);
+    public List<Student> findByUniUniId(Long uniId);
 
 }

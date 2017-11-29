@@ -21,7 +21,7 @@ public class StudentService {
 
     public List<Student> getAllStudents(Long uniId){
         List<Student> students = new ArrayList<>();
-        studentRepository.findByUniId(uniId)
+        studentRepository.findByUniUniId(uniId)
         .forEach(students::add);
         return students;
     }
