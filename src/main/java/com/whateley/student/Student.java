@@ -12,16 +12,18 @@ public class Student {
     private Long studentId;
     private String firstName;
     private String lastName;
+    private String favTech;
 
     @ManyToOne
     private University uni;
 
     public Student(){}
 
-    public Student(Long id, String firstName, String lastName, Long uniId) {
+    public Student(Long id, String firstName, String lastName, String favTech, Long uniId) {
         this.studentId = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.favTech = favTech;
         this.uni = new University(uniId, "","","","");
     }
 
@@ -57,4 +59,11 @@ public class Student {
         this.uni = uni;
     }
 
+    public String getFavTech() {
+        return favTech;
+    }
+
+    public void setFavTech(String tech) {
+        this.favTech = tech;
+    }
 }

@@ -6,6 +6,7 @@ public final class StudentBuilder {
     private Long studentId;
     private String firstName;
     private String lastName;
+    private String favTech;
     private University uni;
 
     private StudentBuilder() {
@@ -25,6 +26,11 @@ public final class StudentBuilder {
         return this;
     }
 
+    public StudentBuilder withFavTech(String favTech) {
+        this.favTech = favTech;
+        return this;
+    }
+
     public StudentBuilder withLastName(String lastName) {
         this.lastName = lastName;
         return this;
@@ -40,6 +46,7 @@ public final class StudentBuilder {
         student.setStudentId(studentId);
         student.setFirstName(firstName);
         student.setLastName(lastName);
+        student.setFavTech(favTech);
         student.setUni(uni);
         return student;
     }

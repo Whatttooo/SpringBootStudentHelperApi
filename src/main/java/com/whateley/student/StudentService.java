@@ -37,6 +37,7 @@ public class StudentService {
                 .withStudentId(studentData.getStudentId())
                 .withFirstName(studentData.getFirstName())
                 .withLastName(studentData.getLastName())
+                .withFavTech(studentData.getFavTech())
                 .withUni(uni)
                 .build();
         studentRepository.save(student);
